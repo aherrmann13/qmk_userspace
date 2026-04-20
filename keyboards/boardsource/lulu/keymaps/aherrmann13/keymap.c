@@ -109,3 +109,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              _______, _______, _______, _______, _______,  _______, _______, _______
   )
 };
+
+/*
+ * setting get hold on other key press for the right thumb key
+ * enter is never used in combo with other keys and i trigger enter
+ * by typing too fast when im trying to hit shift on RH symbols
+*/
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case RSFT_T(KC_ENT):
+            return true;
+        default:
+            return false;
+    }
+}
